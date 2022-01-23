@@ -10,7 +10,7 @@ on:
 
 jobs:
   run-github-actions: 
-    if: contains(github.event.pull_request.labels.*.name, 'Force Record') #trigger labeled pr
+    if: contains(github.event.pull_request.labels.*.name, 'Force Record') #trigger labeled pr1
     runs-on: ubuntu-latest
     steps:
       - name: list files  # list files in VM working directory for WF
