@@ -19,19 +19,19 @@ jobs:
 
       - name: Checkout # checkout github repo into VM working directory with latest commit which trigger current workflow
         uses: actions/checkout@v2
-      - name: list files again after checkout 
+      - name: list files again after checkout -------
         run: |
           pwd
           ls -a
           touch createDiff.txt
-      - name: test patch
+      - name: test patch------
         run: | 
           git status
           git diff HEAD > test.patch
           cat test.patch
           ls -a
-          git add
-          echo "added untracked file"
+          git add .
+          echo "added untracked file-------"
           git status
       - name: simple javascript action-----
         id: greet  # need to define id for this step so the step follows it can use it for output
