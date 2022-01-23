@@ -14,9 +14,6 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
-          git status
-          git diff HEAD > test.patch
-          cat test.patch
         #  git clone git@github:$GITHUB_REPOSITORY
         # ^^^  $GITHUB_SHA: SHA of the commit which triggers this workflow
 
@@ -26,6 +23,11 @@ jobs:
         run: |
           pwd
           ls -a
+      - name: test patch
+        run: | 
+          git status
+          git diff HEAD > test.patch
+          cat test.patch
       - name: simple javascript action
         id: greet  # need to define id for this step so the step follows it can use it for output
         uses: actions/hello-world-javascript-action@v1
