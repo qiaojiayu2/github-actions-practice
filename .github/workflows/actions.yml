@@ -27,7 +27,7 @@ jobs:
       - name: test patch------
         run: | 
           git status
-          mkdir -p ${{ github.workspace }}/artifact2
+          mkdir -p ${{ github.workspace }}/artifact
           git diff HEAD > ${{ github.workspace }}/artifact/test.patch
           ls -a
           git add .
@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with: 
           name: patchFile1
-          path: ${{ github.workspace }}/artifact2/**/*
+          path: ${{ github.workspace }}/artifact/**/*
       - name: simple javascript action-----
         id: greet  # need to define id for this step so the step follows it can use it for output
         uses: actions/hello-world-javascript-action@v1
