@@ -30,7 +30,10 @@ jobs:
           git diff HEAD > test.patch
           cat test.patch
           ls -a
-      - name: simple javascript action
+          git add
+          echo "added untracked file"
+          git status
+      - name: simple javascript action-----
         id: greet  # need to define id for this step so the step follows it can use it for output
         uses: actions/hello-world-javascript-action@v1
         with: # "with" for providing input
