@@ -7,7 +7,7 @@ jobs:
     if: ${{ github.event.label.name == 'Force Record' }}
     runs-on: ubuntu-latest
     steps: 
-      - name: echo a string
+      - name: eccho a string
         run: echo "hello world"
       - name: multiline script
         run: |
