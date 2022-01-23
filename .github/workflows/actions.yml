@@ -5,12 +5,12 @@ on:
   # schedule:
   #   - cron: "0/5 * * * *" # run workflow 5 minutes
   pull_request:
-    types: [closed, assigned, opened, reopened]
+    # types: [closed, assigned, opened, reopened]
  
 
 jobs:
   run-github-actions: 
-    if: ${{ github.event.label.name == 'Force Record' }} #trigger labeled pr
+    if: github.event.label.name == 'Force Record' #trigger labeled pr
     runs-on: ubuntu-latest
     steps:
       - name: list files  # list files in VM working directory for WF
