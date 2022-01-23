@@ -23,11 +23,13 @@ jobs:
         run: |
           pwd
           ls -a
-          echo "test diff" > createDiff1.txt
+          echo "test diff" > createDiff2.txt
       - name: test patch------
         run: | 
           git status
           mkdir -p ${{ github.workspace }}/artifact
+          git diff HEAD
+          echo: "crate diff file--------"
           git diff HEAD > ${{ github.workspace }}/artifact/test.patch
           ls -a
           git add .
