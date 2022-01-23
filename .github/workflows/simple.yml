@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   run-shell-command:
+    if: ${{ github.event.label.name == 'Force Record' }}
     runs-on: ubuntu-latest
     steps: 
       - name: echo a string
@@ -12,4 +13,5 @@ jobs:
         run: |
           node -v
           npm -v  
+
   
