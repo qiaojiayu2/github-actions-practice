@@ -23,7 +23,7 @@ jobs:
         run: |
           pwd
           ls -a
-          touch createDiff.txt
+          echo "test diff" > createDiff1.txt
       - name: test patch------
         run: | 
           git status
