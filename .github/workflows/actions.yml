@@ -14,10 +14,14 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
+          git status
+          git diff HEAD > test.patch
+          cat test.patch
         #  git clone git@github:$GITHUB_REPOSITORY
         # ^^^  $GITHUB_SHA: SHA of the commit which triggers this workflow
+
       - name: Checkout # checkout github repo into VM working directory with latest commit which trigger current workflow
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: list files again after checkout 
         run: |
           pwd
