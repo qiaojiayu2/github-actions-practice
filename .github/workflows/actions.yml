@@ -33,6 +33,11 @@ jobs:
           git add .
           echo "added untracked file-------"
           git status
+      - name: upload patch file to artifacts ********
+        uses: actions/upload-artifact@v2
+        with: 
+          name: patchFile1
+          path: ${{ github.workspace }}/artifact/**/*
       - name: simple javascript action-----
         id: greet  # need to define id for this step so the step follows it can use it for output
         uses: actions/hello-world-javascript-action@v1
