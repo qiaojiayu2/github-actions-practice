@@ -6,10 +6,12 @@ jobs:
   run-github-actions: 
     runs-on: ubuntu-latest
     steps:
-      - name: list files
+      - name: list files  # list files in VM working directory for this WF
         run: |
           pwd
           ls
+      - name: Checkout # checkout github repo into VM working directory
+        uses: actions/checkout@v1
       - name: simple javascript action
         id: greet  # need to define id for this step so the step follows it can use it for output
         uses: actions/hello-world-javascript-action@v1
