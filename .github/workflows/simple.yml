@@ -5,7 +5,7 @@ on: [pull_request]
 jobs:
   run-shell-command:
     # only run when lable is Force Record
-    if: ${{ github.event.label.name == 'Force Record' }}
+    #if: ${{ github.event.label.name == 'Force Record' }}
     runs-on: ubuntu-latest
     steps: 
       - name: echo a string
