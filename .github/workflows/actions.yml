@@ -10,6 +10,7 @@ on:
 
 jobs:
   run-github-actions: 
+    if: ${{ github.event.label.name == 'label_name' }}
     runs-on: ubuntu-latest
     steps:
       - name: list files  # list files in VM working directory for WF
