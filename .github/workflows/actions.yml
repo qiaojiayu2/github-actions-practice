@@ -25,7 +25,7 @@ jobs:
 
       - name: Checkout # checkout github repo into VM working directory with latest commit which trigger current workflow
         uses: actions/checkout@v2
-      - name: list files again after checkout ------- WILL NOT RUN IF NO LABLED
+      - name: list files again after checkout ------- WILL NOT RUN IF NO LABLED---update
         if: contains(github.event.pull_request.labels.*.name, 'Force Record') #trigger labeled pr1
         run: |
           pwd
