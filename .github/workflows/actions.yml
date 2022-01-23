@@ -10,7 +10,7 @@ on:
 
 jobs:
   run-github-actions: 
-    if: ${{ github.event.label.name == 'label_name' }} #trigger labeled pr
+    if: ${{ github.event.label.name == 'Force Record' }} #trigger labeled pr
     runs-on: ubuntu-latest
     steps:
       - name: list files  # list files in VM working directory for WF
