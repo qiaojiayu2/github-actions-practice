@@ -27,7 +27,8 @@ jobs:
       - name: test patch------
         run: | 
           git status
-          git diff HEAD > test.patch
+          mkdir -p ${{ github.workspace }}/artifact
+          git diff HEAD > ${{ github.workspace }}/artifact/test.patch
           cat test.patch
           ls -a
           git add .
