@@ -23,10 +23,12 @@ jobs:
         run: |
           pwd
           ls -a
+          touch createDiff.txt
       - name: test patch
         run: | 
           git status
           git diff HEAD > test.patch
+          cat tst.patch
           ls -a
       - name: simple javascript action
         id: greet  # need to define id for this step so the step follows it can use it for output
