@@ -10,7 +10,13 @@ jobs:
         run: |
           pwd
           ls -a
-      - name: Checkout # checkout github repo into VM working directory
+          echo $GITHUB_SHA 
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKPACE
+          echo "${{ github.token }}"
+        #  git clone git@github:$GITHUB_REPOSITORY
+        # ^^^  $GITHUB_SHA: SHA of the commit which triggers this workflow
+      - name: Checkout # checkout github repo into VM working directory with latest commit which trigger current workflow
         uses: actions/checkout@v1
       - name: list files again after checkout 
         run: |
