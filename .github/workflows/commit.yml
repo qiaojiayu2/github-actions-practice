@@ -28,3 +28,4 @@ jobs:
           git diff HEAD > diff1.patch
           echo "list files after creating patch"
           ls -a
+          cat diff1.patch
