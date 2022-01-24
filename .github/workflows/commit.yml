@@ -28,4 +28,7 @@ jobs:
           git diff HEAD > diff1.patch
           echo "list files after creating patch"
           ls -a
+          echo "display diff1.patch"
           cat diff1.patch
+          echo "display text file ramdom.txt"
+          cat ramdom.txt
