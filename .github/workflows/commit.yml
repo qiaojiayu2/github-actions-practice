@@ -32,4 +32,6 @@ jobs:
           echo "display diff1.patch"
           cat diff1.patch
           echo "display text file ramdom.txt"
+        run: |
+          cat ramdom.txt
           
