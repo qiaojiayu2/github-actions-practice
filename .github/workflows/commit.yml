@@ -1,10 +1,11 @@
 name: Commit
 
 on: 
+  [push]
   # test scheduled workflow
   # schedule:
   #   - cron: "0/5 * * * *" # run workflow 5 minutes
-  pull_request:
+  #pull_request:
     # types: [closed, assigned, opened, reopened]
  
 
@@ -25,3 +26,5 @@ jobs:
           echo $RAMDOM >> ramdom.txt
           git status
           git diff HEAD > diff1.patch
+          echo "list files after creating patch"
+          ls -a
