@@ -49,9 +49,10 @@ jobs:
       #     name: gitDiffpatch1
 
   apply-patches:
+    
     runs-on: ubuntu-latest
-    steps:
-      
+    needs: test-patch-creation
+    steps: 
       - name: create download folder for patches
         #id: download-folder
         run: |
