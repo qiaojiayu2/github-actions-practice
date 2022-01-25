@@ -28,7 +28,8 @@ jobs:
           ls -a
           echo $RANDOM >> ramdom.txt
           ls -a 
-          git add .
-          git commit -m "commit random.txt"
-          git push
+          echo "created new file changes for ramdom.txt"
+          git status
+          git diff > gitDiff1.patch
+          ls -a
 
