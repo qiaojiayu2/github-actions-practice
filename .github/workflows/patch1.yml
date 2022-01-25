@@ -69,7 +69,14 @@ jobs:
           echo ${{steps.download-patches.outputs.download-path}}
           cd ${{ github.workspace }}/download
           ls -R
-
+          echo $${{ jobs.test-patch-creation.strategy.matrix }}
+      
+      # - name: apply patch
+      #   run: |
+      #    pwd
+      #    ls -a
+      #    git status
+      #    git am ${{ github.workspace }}/download/
 
             
           
