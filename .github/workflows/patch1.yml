@@ -1,0 +1,34 @@
+name: PATCH1
+on: 
+  [push]
+  # test scheduled workflow
+  # schedule:
+  #   - cron: "0/5 * * * *" # run workflow 5 minutes
+  #pull_request:
+    # types: [closed, assigned, opened, reopened]
+ 
+
+jobs:
+  run-github-actions: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current build before tests
+        run: |
+          pwd
+          ls -a
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "my-bot@bot.com"
+          git config --global user.name "my-bot"
+          git fetch
+          git checkout test-label-2
+          git branch --set-upstream-to=origin/test-label-2
+          git pull
+          ls -a
+          echo $RANDOM >> ramdom.txt
+          ls -a 
+          echo "created new file changes for ramdom.txt"
+          git status
+          git diff > gitDiff1.patch
+          ls -a
+
