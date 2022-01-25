@@ -68,8 +68,8 @@ jobs:
         run: |
           echo ${{steps.download-patches.outputs.download-path}}
           cd ${{ github.workspace }}/download
+          echo $${ matrix }} 
           ls -R
-          echo $${{ jobs.test-patch-creation.strategy.matrix }}
       
       # - name: apply patch
       #   run: |
