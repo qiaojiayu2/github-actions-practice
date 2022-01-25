@@ -31,4 +31,4 @@ jobs:
           git status
           git diff > gitDiff1.patch
           ls -a
-
+          cat gitDiff1.patch
