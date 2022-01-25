@@ -9,7 +9,7 @@ on:
  
 
 jobs:
-  run-github-actions: 
+  test-patch-creation: 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current build before tests
@@ -32,3 +32,8 @@ jobs:
           git diff > gitDiff1.patch
           ls -a
           cat gitDiff1.patch
+      - name : Upload patch as artifact
+        uses: actions/upload-artifact@v2
+        with:
+            name: gitDiffpatch1
+            path: gitDiff1.patch
