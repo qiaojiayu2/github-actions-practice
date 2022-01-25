@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
             name: gitDiffPatch-${{matrix.node}} #new name for artifacts
-            path: ${{ github.workspace }}/artifact/gitDiff-${{ matrix.node }}-SHA-{{ GITHUB_SHA }}.patch
+            path: ${{ github.workspace }}/artifact/gitDiff-${{ matrix.node }}-SHA-${{ GITHUB_SHA }}.patch
             retention-days: 2
       # - name : Download git patch files
       #   uses: actions/download-artifact@v2
