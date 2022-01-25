@@ -11,6 +11,9 @@ on:
 jobs:
   test-patch-creation: 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [1, 2, 3]
     steps:
       - name: Checkout current build before tests
         run: |
@@ -29,11 +32,18 @@ jobs:
           ls -a 
           echo "created new file changes for ramdom.txt"
           git status
-          git diff > gitDiff1.patch
+          mkdir -p ${{ github.workspace }}/artifact
+          git diff > ${{ github.workspace }}/artifact/gitDiff-${{ matrix.node }}.patch
           ls -a
-          cat gitDiff1.patch
+          cat ${{ github.workspace }}/artifact/gitDiff-${{ matrix.node }}.patch
+
       - name : Upload patch as artifact
         uses: actions/upload-artifact@v2
         with:
-            name: gitDiffpatch1
-            path: gitDiff1.patch
+            name: gitDiffPatch-${{matrix.node}} #new name for artifacts
+            path: ${{ github.workspace }}/artifact/gitDiff-${{ matrix.node }}.patch
+            retention-days: 2
+      # - name : Download git patch files
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: gitDiffpatch1
