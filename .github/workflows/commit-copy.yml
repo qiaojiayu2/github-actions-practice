@@ -26,26 +26,9 @@ jobs:
           git branch --set-upstream-to=origin/test-label-2
           git pull
           ls -a
-          echo $RAMDOM >> ramdom.txt
+          echo $RANDOM >> ramdom.txt
           ls -a 
           git add .
           git commit -m "commit random.txt"
           git push
-      # - name: list files from initial checkout
-      #   run: |
-      #     pwd
-      #     ls -a
-      # - name : make some changes during workflow
-      #   run: |
-      #     echo $RAMDOM >> ramdom.txt
-      #     cat ramdom.txt
-      #     git status
-      #     git diff HEAD > diff1.patch
-      #     echo "list files after creating patch"
-      #     ls -a
-      #     echo "display diff1.patch"
-      #     cat diff1.patch
-      #     echo "display text file ramdom.txt"
-      #   run: |
-      #     cat ramdom.txt
-          
+
