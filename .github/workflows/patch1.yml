@@ -41,9 +41,34 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
             name: gitDiffPatch-${{matrix.node}} #new name for artifacts
-            path: ${{ github.workspace }}/artifact/gitDiff-${{ matrix.node }}.patch
+            path: ${{ github.workspace }}/artifact/gitDiff-${{ matrix.node }}-SHA-{{ GITHUB_SHA }}.patch
             retention-days: 2
       # - name : Download git patch files
       #   uses: actions/download-artifact@v2
       #   with:
       #     name: gitDiffpatch1
+
+  apply-patches:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: create download folder for patches
+        #id: download-folder
+        run: |
+          mkdir -p ${{ github.workspace }}/download
+
+      - name: Download patches
+        id: download-patches
+        uses: actions/download-artifact@v2
+        with: 
+          path: ${{ github.workspace }}/download/
+      
+      - name: 'Echo download path'
+        run: |
+          echo ${{steps.download-patches.outputs.download-path}}
+          cd ${{ github.workspace }}/download
+          ls -R
+
+
+            
+          
