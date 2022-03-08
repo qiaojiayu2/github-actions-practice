@@ -11,7 +11,7 @@ jobs:
       - name: test if else in bash
         id: test_if
         run: |
-          if [ "${{ !contains(github.event.push.labels.*.name, 'Force Record') }}" ]; then
+          if [ "${{ contains(github.event.push.labels.*.name, 'Force Record') }}" ]; then
             echo "no lable"
           else
             echo "has label"
