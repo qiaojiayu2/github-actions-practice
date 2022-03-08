@@ -3,6 +3,21 @@ name: Actions Workflow
 on: [push]
 
 jobs:
+
+#  echo ::set-output name=matrix::{\"node\":$MATRIX}
+  test-if:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test if else in bash
+        id: test_if
+        run: |
+          if [ "${{ !contains(github.event.push.labels.*.name, 'Force Record') }}" ]; then
+            echo "no lable"
+          else
+            echo "has label"
+          fi
+         
+  
   run-github-actions: 
     runs-on: ubuntu-latest
     steps:
